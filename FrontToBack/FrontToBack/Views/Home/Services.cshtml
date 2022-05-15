@@ -1,0 +1,56 @@
+﻿@using FrontToBack.Models
+@model List<Service>
+
+@{
+    ViewBag.Title = "Services";
+}
+
+<!-- Services -->
+<section id="services" class="home-section bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <div class="section-heading">
+                    <h2>Services</h2>
+                    <div class="heading-line"></div>
+                    <p>We’ve been building unique digital products, platforms, and experiences for the past 6 years.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="carousel-service" class="service carousel slide">
+
+                    <!-- slides -->
+                    <div class="carousel-inner">
+                        @for (int i = 0; i < Model.ToArray().Count(); i++)
+                        {
+                            <div class="item @(i == 0 ? "active" : "")">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-offset-1 col-md-6">
+                                        <div class="wow bounceInLeft">
+                                            <h4>@Model[i].Title</h4>
+                                            <p>@Model[i].Subtitle</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-5">
+                                        <div class="screenshot wow bounceInRight">
+                                            <img src="~/Public/img/screenshots/@Model[i].Image" class="img-responsive" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-service" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-service" data-slide-to="1"></li>
+                        <li data-target="#carousel-service" data-slide-to="2"></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

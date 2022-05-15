@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4901ce82e1c14d12b8f7da24cebf81f3" Name="Diagram1">
+        <EntityTypeShape EntityType="AlstarModel.Slider" Width="1.5" PointX="2.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlstarModel.About" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="AlstarModel.Parallax1" Width="1.5" PointX="3.75" PointY="0.5" />
+        <EntityTypeShape EntityType="AlstarModel.Service" Width="1.5" PointX="5.375" PointY="0.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
