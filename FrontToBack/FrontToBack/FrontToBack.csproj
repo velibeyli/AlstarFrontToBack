@@ -128,6 +128,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SlidersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -150,6 +153,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Extensions.cs" />
+    <Compile Include="Models\Metadatas.cs" />
     <Compile Include="Models\Parallax1.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
@@ -163,6 +168,65 @@
     <Compile Include="ViewModel\HomeIndexVM.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Public\assets\css\cs-skin-elastic.css" />
+    <Content Include="Areas\Admin\Public\assets\css\lib\chosen\chosen-sprite%402x.png" />
+    <Content Include="Areas\Admin\Public\assets\css\lib\chosen\chosen-sprite.png" />
+    <Content Include="Areas\Admin\Public\assets\css\lib\chosen\chosen.css" />
+    <Content Include="Areas\Admin\Public\assets\css\lib\chosen\chosen.min.css" />
+    <Content Include="Areas\Admin\Public\assets\css\lib\datatable\buttons.bootstrap.min.css" />
+    <Content Include="Areas\Admin\Public\assets\css\lib\datatable\buttons.dataTables.min.css" />
+    <Content Include="Areas\Admin\Public\assets\css\lib\datatable\dataTables.bootstrap.min.css" />
+    <Content Include="Areas\Admin\Public\assets\css\lib\vector-map\jqvmap.min.css" />
+    <Content Include="Areas\Admin\Public\assets\css\style.css" />
+    <Content Include="Areas\Admin\Public\assets\fonts\icomoon\icomoon.svg" />
+    <Content Include="Areas\Admin\Public\assets\fonts\icomoon\index.html" />
+    <Content Include="Areas\Admin\Public\assets\js\dashboard.js" />
+    <Content Include="Areas\Admin\Public\assets\js\init\chartjs-init.js" />
+    <Content Include="Areas\Admin\Public\assets\js\init\datatables-init.js" />
+    <Content Include="Areas\Admin\Public\assets\js\init\flot-chart-init.js" />
+    <Content Include="Areas\Admin\Public\assets\js\init\fullcalendar-init.js" />
+    <Content Include="Areas\Admin\Public\assets\js\init\gmap-init.js" />
+    <Content Include="Areas\Admin\Public\assets\js\init\peitychart-init.js" />
+    <Content Include="Areas\Admin\Public\assets\js\init\vector-init.js" />
+    <Content Include="Areas\Admin\Public\assets\js\init\weather-init.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\chosen\chosen.jquery.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\chosen\chosen.jquery.min.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\chosen\chosen.proto.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\chosen\chosen.proto.min.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\data-table\buttons.bootstrap.min.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\data-table\buttons.colVis.min.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\data-table\buttons.flash.min.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\data-table\buttons.html5.min.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\data-table\buttons.print.min.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\data-table\dataTables.bootstrap.min.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\data-table\dataTables.buttons.min.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\data-table\datatables.min.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\data-table\jquery-1.12.4.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\data-table\jquery.dataTables.min.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\data-table\jszip.min.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\data-table\pdfmake.min.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\data-table\vfs_fonts.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\gmap\gmapApi.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\gmap\gmaps.js" />
+    <Content Include="Areas\Admin\Public\assets\js\lib\gmap\gmaps.min.js" />
+    <Content Include="Areas\Admin\Public\assets\js\main.js" />
+    <Content Include="Areas\Admin\Public\assets\js\vmap.sampledata.js" />
+    <Content Include="Areas\Admin\Public\assets\js\widgets.js" />
+    <Content Include="Areas\Admin\Public\assets\scss\style.css" />
+    <Content Include="Areas\Admin\Public\images\.gitignore" />
+    <Content Include="Areas\Admin\Public\images\admin.jpg" />
+    <Content Include="Areas\Admin\Public\images\avatar\1.jpg" />
+    <Content Include="Areas\Admin\Public\images\avatar\2.jpg" />
+    <Content Include="Areas\Admin\Public\images\avatar\3.jpg" />
+    <Content Include="Areas\Admin\Public\images\avatar\4.jpg" />
+    <Content Include="Areas\Admin\Public\images\avatar\5.jpg" />
+    <Content Include="Areas\Admin\Public\images\avatar\6.jpg" />
+    <Content Include="Areas\Admin\Public\images\avatar\64-1.jpg" />
+    <Content Include="Areas\Admin\Public\images\avatar\64-2.jpg" />
+    <Content Include="Areas\Admin\Public\images\favicon.png" />
+    <Content Include="Areas\Admin\Public\images\logo.png" />
+    <Content Include="Areas\Admin\Public\images\logo2.png" />
+    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Models\db.Context.tt">
@@ -255,6 +319,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\db.edmx">
@@ -264,6 +330,21 @@
     <Content Include="Models\db.edmx.diagram">
       <DependentUpon>db.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Public\assets\css\style.css.map" />
+    <Content Include="Areas\Admin\Public\assets\fonts\icomoon\icomoon.eot" />
+    <Content Include="Areas\Admin\Public\assets\fonts\icomoon\icomoon.ttf" />
+    <Content Include="Areas\Admin\Public\assets\fonts\icomoon\icomoon.woff" />
+    <Content Include="Areas\Admin\Public\assets\scss\style.css.map" />
+    <Content Include="Areas\Admin\Public\assets\scss\style.scss" />
+    <Content Include="Areas\Admin\Public\images\logo.psd" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Delete.cshtml" />
     <None Include="packages.config" />
     <Content Include="Public\fonts\fontawesome-webfont.eot" />
     <Content Include="Public\fonts\fontawesome-webfont.ttf" />
