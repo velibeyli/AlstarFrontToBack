@@ -4,13 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FrontToBack.Models;
+using System.Data.Entity;
 
 namespace FrontToBack.Areas.Admin.Controllers
 {
+    [AuthorizeAdminFilter]
     public class SlidersController : Controller
     {
         private readonly AlstarEntities _db;
         // GET: Admin/Sliders
+        
         public SlidersController()
         {
             _db = new AlstarEntities();
@@ -21,6 +24,10 @@ namespace FrontToBack.Areas.Admin.Controllers
         }
         public ActionResult Create()
         {
+
+            if (Session["adminLogged"] == null)
+                return RedirectToAction("Login", "Account");
+
             return View();
         }
 
@@ -45,6 +52,7 @@ namespace FrontToBack.Areas.Admin.Controllers
             }
             return View();
         }
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -85,6 +93,39 @@ namespace FrontToBack.Areas.Admin.Controllers
 
             _db.Sliders.Remove(slider);
             _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(int? id)
+        {
+            if(id == null)
+                return HttpNotFound("Id is missing");
+
+            Slider slider = _db.Sliders.Find(id);
+
+            if (slider == null)
+                return HttpNotFound("Id is not correct");
+
+            return View(slider
+);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Slider slider, HttpPostedFileBase NewImage)
+        {
+            if (ModelState.IsValid)
+            {
+                if(NewImage != null)
+                {
+                    Extensions.DeleteImage(Server.MapPath("~/Public/img/team"),slider.Image);
+
+                    slider.Image = Extensions.SaveImage(Server.MapPath("~/Public/img/team"), NewImage);
+                }
+
+                _db.Entry(slider).State = EntityState.Modified;
+                _db.SaveChanges();
+            }
+
             return RedirectToAction("Index");
         }
     }

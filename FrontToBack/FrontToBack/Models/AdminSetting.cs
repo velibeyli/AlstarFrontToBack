@@ -15,16 +15,14 @@ namespace FrontToBack.Models
 using System;
     using System.Collections.Generic;
     
-public partial class Slider
+public partial class AdminSetting
 {
 
     public int ID { get; set; }
 
-    public string Image { get; set; }
+    public string Username { get; set; }
 
-    public string Title { get; set; }
-
-    public string Subtitle { get; set; }
+    public string Password { get; set; }
 
 }
 

@@ -9,6 +9,7 @@
         <EntityTypeShape EntityType="AlstarModel.About" Width="1.5" PointX="0.5" PointY="0.5" />
         <EntityTypeShape EntityType="AlstarModel.Parallax1" Width="1.5" PointX="3.75" PointY="0.5" />
         <EntityTypeShape EntityType="AlstarModel.Service" Width="1.5" PointX="5.375" PointY="0.5" />
+        <EntityTypeShape EntityType="AlstarModel.AdminSetting" Width="1.5" PointX="7.25" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

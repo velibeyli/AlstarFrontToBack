@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "ChangeUsername";
+}
+
+<h2>ChangeUsername</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" />
+    </div>
+
+    @if(ViewBag.UsernameError != null)
+    {
+        <div class="alert alert-danger">
+            <p>@ViewBag.UsernameError </p>
+        </div>
+    }
+
+    <input type="submit" class="btn btn-outline-success btn-lg" value="change" />
+</form>
+
